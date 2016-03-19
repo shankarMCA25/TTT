@@ -23,7 +23,7 @@
 		     		 				</tr>
 		     		 				<tr>
 		     		 					<td>Re-Enter the new password</td>
-		     		 					<td><input type="password" name="reenter" id="repassword" required></td>
+		     		 					<td><input type="password" name="repassword" id="repassword" required></td>
 		     		 				</tr>
 		     		 				<tr class="tblcenter">
 		     		 					<td><input type="submit" name="chpswd" value="Change Password">
@@ -55,20 +55,29 @@
 			$("#changepassword").validate({
 				rules:{
 					curpass:"required",
-					newpass:"required",
+					newpass:{
+						required: true,
+						minlength:6
+					},
 					repassword:{
+						required: true,
+						minlength:6,
 						equalTo:"#newpass"
-					};
+					}
 				},
 				messages:{
 					curpass:"please enter current password",
 					newpass:
 					{
 						minlength:"Password has to be minimum 6 characters in length",
-						required:"Please enter current password";
+						required:"Please enter current password"
 					},
 						
-					repassword:"Please enter new password again";
+					repassword:{
+						minlength:"Password has to be minimum 6 characters in length",
+						equalTo:"please re-enter correct password",
+						required:"Please enter new password again"
+					}
 				}
 			});
 			});
