@@ -47,7 +47,6 @@
 													foreach($branches as $row)
 													{
 														  echo '<option value='.$row['Branch_Id'].'> '.$row['Branch_Id'].' </option>' ;
-
 													}
 												?>
 													
@@ -139,7 +138,7 @@
 														<td>'.$result['Emp_id'].
 														'</td>'.
 														'<td>'.$result['Emp_name'].
-														'</td><td><input type="submit" <!--href="dlete.php?id=".$result['Emp_id'].-->"></input><td>
+														'</td><td><a href="delete.php?Emp_id='.$result['Emp_id'].'">Remove agent</a></input><td>
 														
 													</tr>';
 												
@@ -162,12 +161,9 @@
 			
 
 			<?php	
-
-
 			function generatePassword($length = 16) {
 				$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*_-=+)(\}{;".,';
 			$count = mb_strlen($chars);
-
 			for ($i = 0, $result = ''; $i<$length; $i++) 
 			{
 				$index = rand(0, $count - 1);
@@ -199,20 +195,14 @@
 					 
 			}
 			
-
 			
 			?>
 
 			<script>
 			// Script for validation begins 
 			
-
 			$(document).ready(function()
 			{
-
-
-
-
 				$( "#Emp_contact" ).validate({
 				  rules: {
 				    Emp_contact: {
@@ -222,8 +212,6 @@
 				    }
 				  }
 				});//.validate end
-
-
 				$('#Emp_contact').keypress(function (Emp_contact) {
 		        var regex = new RegExp("^[0-9]+$");
 		        var str = String.fromCharCode(!Emp_contact.charCode ? Emp_contact.which : Emp_contact.charCode);
@@ -249,15 +237,12 @@
 		        		return false;
 		        }
 		    });
-
 				$.validator.methods.Emp_email = function( value, element ) {
 			  		return this.optional( element ) || /[a-z]+@[a-z]+\.[a-z]+/.test( value );
 				},"Enter Valid email address";
-
 				$.validator.methods.Emp_name = function( value, element ) {
 			  		return this.optional( element ) || /[a-zA-Z]/.test( value );
 				},"Name cannot have numbers or special symbols";
-
 				$("#Add_emp").validate({
 					rules:{
 						Emp_id:"required",
@@ -282,7 +267,6 @@
 							required:true,
 							minlength:10
 						},
-
 					},
 					// Messages for error message
 					messages:{
@@ -304,13 +288,11 @@
 						// Message for Employee address
 						Emp_address:{
 							minlength:"Enter a Vaild Address"
-
 						},//of Emp_address  
 					}//Of .message
 				})//Of #add_emp validate function
 			})//of ready function
 			
-
 			</script>
 			</body>
 
