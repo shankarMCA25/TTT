@@ -62,7 +62,13 @@
 			}
 			public function update_emp_status($table_name="",$col="*",$where="1")
 			{
-				$sql="UPDATE  `$col from $table_name SET  `Emp_Status` =  '0' WHERE '$where';
+				$sql="UPDATE  $table_name SET  Emp_Status =  0 WHERE  $where";
+				echo $sql;
+				$res=$this->conn->query($sql);
+				if($res)
+					return true;
+				else 
+					return false;
 			}
 	}
 

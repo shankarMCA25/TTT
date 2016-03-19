@@ -122,29 +122,43 @@
 												
 												echo"<script>alert('Insert Agent ID or Agent Name')</script>";
 											}
-											else{
-											$res=$database->select("Employee","Emp_id,Emp_name","Emp_name='$emp_name'");	
-											echo '<center><table class="tblcenter">
-												<tr>
-													<th>Employee Id</th>
-													<th>Employee Name</th>
-													<th></th>
-												</tr>';
-											//	count($res);
-											 
-											 foreach($res as $result)
-												echo
-													'<tr>
-														<td>'.$result['Emp_id'].
-														'</td>'.
-														'<td>'.$result['Emp_name'].
-														'</td><td><a href="delete.php?Emp_id='.$result['Emp_id'].'">Remove agent</a></input><td>
-														
+											else
+											{
+												$res = null;
+												if ($_POST['agentid'] != ""){
+													$res=$database->select("Employee","Emp_id,Emp_name,Emp_type","Emp_id='$emp_id' AND Emp_Status='1'");	
+												}
+												else if ($_POST['agentname'] != ""){
+													$res=$database->select("Employee","Emp_id, Emp_name, Emp_type","Emp_name='$emp_name' AND Emp_Status='1'");	
+												}
+												echo '<center><table class="table table-hover">
+													<tr>
+														<th>Employee Id</th>
+														<th>Employee Name</th>
+														<th>Employee Type</th>
+														<th></th>
 													</tr>';
-												
-											
-											
-										}
+												//	count($res);
+												if($res){
+													foreach($res as $result)
+														echo
+															'<tr>
+																<td>'.$result['Emp_id'].
+																'</td>'.
+																'<td>'.$result['Emp_name'].
+																'</td><td>';
+																if($result['Emp_type']=='1'){ echo "Agent"; } else {echo "officer";}
+																echo '<td>
+																	<a href="Delete.php?Emp_id='.$result['Emp_id'].'">Remove agent</a></input>
+																</td>
+				
+															</td>
+															</tr>';
+												}
+												else{
+													echo "<script>alert('No active agents found');</script>";
+												}
+											}
 										}
 										
 										?></div>
