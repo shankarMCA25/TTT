@@ -76,7 +76,7 @@
 						     		 				</tr>
 						     		 				<tr>
 						     		 					<td>Enter Employee Email</td>
-						     		 					<td><input type="email" name="Emp_email" id="Emp_email"required></td>
+						     		 					<td><input type="email" name="Emp_email" id="Emp_email" required></td>
 						     		 				</tr>
 						     		 				<tr>
 						     		 					<td>Enter Employee type</td>
@@ -129,8 +129,9 @@
 													$res=$database->select("Employee","Emp_id,Emp_name,Emp_type","Emp_id='$emp_id' AND Emp_Status='1'");	
 												}
 												else if ($_POST['agentname'] != ""){
-													$res=$database->select("Employee","Emp_id, Emp_name, Emp_type","Emp_name='$emp_name' AND Emp_Status='1'");	
+													$res=$database->select("Employee","Emp_id, Emp_name, Emp_type","Emp_name='$emp_name' AND Emp_Status='1'");
 												}
+												
 												echo '<center><table class="table table-hover">
 													<tr>
 														<th>Employee Id</th>
