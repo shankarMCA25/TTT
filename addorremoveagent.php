@@ -132,12 +132,12 @@
 													$res=$database->select("Employee","Emp_id, Emp_name, Emp_type","Emp_name='$emp_name' AND Emp_Status='1'");
 												}
 												
-												echo '<center><table class="table table-hover">
+												echo '<center> <table class="table table-striped table-advance table-hover">
 													<tr>
-														<th>Employee Id</th>
-														<th>Employee Name</th>
-														<th>Employee Type</th>
-														<th></th>
+														<th><i class="icon_profile"></i> Employee Id</th>
+														<th><i class="fa fa-user-md"></i> Employee Name</th>
+														<th><i class="fa fa-desktop"></i> Employee Type</th>
+														<th><i class="icon_cogs"></i>  Delete</th>
 													</tr>';
 												//	count($res);
 												if($res){
@@ -150,7 +150,7 @@
 																'</td><td>';
 																if($result['Emp_type']=='1'){ echo "Agent"; } else {echo "officer";}
 																echo '<td>
-																	<a href="Delete.php?Emp_id='.$result['Emp_id'].'">Remove agent</a></input>
+																	<a class="btn btn-danger"  href="Delete.php?Emp_id='.$result['Emp_id'].'">Remove agent <i class="icon_close_alt2"></i></a></input>
 																</td>
 				
 															</td>
