@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 	<?php 
 	
 	include 'header.php';
 	$database=new dbconn();
+	$accno="123987";
 	?>
 		<body style=>
-			<?php include 'Manager_Index1.php';?>
+			<?php include 'Manager_Index1.php';
+			?>
 			<!--main content start-->
 			
 
 			
-			<?php/*<script>
-		function hide(){
-		$('#Account_details').hide();
+			
+			<script>
+				function hide(){
+				$('#Account_details').hide();
 				$('#closeaccount').submit(function(){
 						 $('#Account_details').show();   
 				});
 				}
 			
-			</script>*/
+			</script>
       		<section id="main-content">
      		 	<section class ="wrapper" style="width:100%;height:100%">
 			 
@@ -54,12 +56,13 @@
 						<?php
 						if(isset($_POST["submit"])){
 							$accno=$_POST['accno'];
-							$res=$database->select("Accounts","Account_no,Name,Address,Phone_no,Email,Start_date,Emp_id,Daily_amt","Account_no='$accno'");
+							$res=$database->select("Accounts","Account_no,Name,Address,Phone_no,Email,Start_date,Emp_id,Daily_amt","Account_no='$accno' AND Status='1'");
 							if(!$res)
-								echo "<script>alert ('No such account found OR invalid Account number!') </script>";
+								echo "<script>alert ('No such Active account found OR invalid Account number!') </script>";
 							else{
 
-								echo '<table class="table table-hover">
+								echo '<form name="closeacc" id="closeacc" method="post" action="#">
+								<table class="table table-hover">
 								<tr>
 								<th> Details</th>
 								<th>Information</th>
@@ -68,8 +71,11 @@
 												<td>Account number
 												</td>
 												<td>
+													
 													'.$res[0]['Account_no'].'
-												</td>
+
+													</td>
+												
 											</tr>
 											<tr>
 												<td>Account Holders name
@@ -128,47 +134,42 @@
 												</td>
 											</tr>
 												<tr>
-												<td class="tblcenter"><input type="submit" name="removeaccount" value="Remove account" onclick="return checkDelete()" ></input>
+												<td class="tblcenter">
+												<input  name="closeacc" id="closeacc" value="Remove account"  type="submit" onclick="return confirm(\'Are you sure you want to close the account number '.$res[0]['Account_no'].'?\');"></input>
 												</td>
-												
+												<input type="hidden" name="accno1" id="accno" value="'.$res[0]['Account_no'].'"></input>
 											</tr>
-											</table>';
+											</table>
+											</form>';
 								
 							}
 						}
-						if(isset($_POST['removeaccount'])){
-							$res=$database->update_emp_status("Accounts","Status","Account_no='$accno'");
-							if($res)
-								return true;
-							else{
-								echo "<script>alert ('Account successfully closed') </script>";
-							}
-						}
-											
+							if(isset($_POST["closeacc"])){
+								$accno1=$_POST['accno1'];
+								$closedate=date('Y-m-d');
+								
+								$res=$database->update_emp_status("Accounts","Status='0',End_date='$closedate'","Account_no='$accno1'");
+								
+								if($res){
+									echo "<script>alert ('Account successfully closed') </script>";
+									return true;
+									}
+								else
+								{
+									echo "<script>alert ('Account Could not be closed Check the account number and try again') </script>";
+								}
+						
+						}				
 						?>
                    
                    </div>
      		 	
      		</section>
 		<?php include 'footer.php'?>	
-		<script language="JavaScript" type="text/javascript">
-		function checkDelete(){
-			var $del;
-				 $del=confirm('Are you sure you want to close this account?');
-				 if($del){
-					 $.get("delete.php");
-					 return true;
-				 }
-				 return false;
-			}
-		</script>
+		
 		<script>
-/*		function hide(){
-		$('#Account_details').hide();
-				$('#closeaccount').submit(function(){
-						 $('#Account_details').show();   
-				});
-				}*/
+
+			
 			
 			$(document).ready(function()
 			{

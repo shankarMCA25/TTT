@@ -22,7 +22,7 @@
 				if ($this->conn->connect_error) {
 					die("Connection failed: " . $conn->connect_error);
 				} 
-				echo "Connected successfully";
+				
 
 //				$this->conn = mysqli_connect($servername,$username,$password,$dbname);
 //				if($this->conn->mysqli_connect_errno())
@@ -62,8 +62,8 @@
 			}
 			public function update_emp_status($table_name="",$col="*",$where="1")
 			{
-				$sql="UPDATE  $table_name SET  $col =  0 WHERE  $where";
-				echo $sql;
+				$sql="UPDATE  $table_name SET  $col WHERE  $where";
+				
 				$res=$this->conn->query($sql);
 				if($res)
 					return true;
@@ -73,12 +73,13 @@
 			public function remove_acc($table_name="",$col="*",$where="1")
 			{
 				$sql="UPDATE  $table_name SET  $col WHERE  $where";
-				echo $sql;
-				$res=$this->conn->query($sql);
+				echo '<script> alert('.$sql.')</script>';
+				return true;
+				/*$res=$this->conn->query($sql);
 				if($res)
 					return true;
 				else 
-					return false;
+					return false;*/
 			}
 	}
 
