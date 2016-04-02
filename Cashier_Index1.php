@@ -184,14 +184,14 @@
                             <li>
                                 <a href="#">
                                     <span class="label label-primary"><i class="icon_profile"></i></span> 
-                                    Friend Request
+                                    # Deposits # agents
                                     <span class="small italic pull-right">5 mins</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <span class="label label-warning"><i class="icon_pin"></i></span>  
-                                    John location.
+                                    # Withdrawals # agents
                                     <span class="small italic pull-right">50 mins</span>
                                 </a>
                             </li>

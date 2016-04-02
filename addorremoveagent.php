@@ -31,10 +31,10 @@
 	                            	 <div class="tab-content ChPassFont">
 	                            		<!--ADD AGENT DIV CONTENTS BEGIN -->
 	                                	<div id="Add_Agent" class="tab-pane ChPassFont <?php if(isset($_POST["submit"]) || !(isset($_POST["rmvagentsrch"]) || isset($_POST["submit"]))) echo "active";?>">
-	                                		<h2>Enter Agent Details</h2>
+	                                		<h2>Enter Employee Details</h2>
 	                                		<hr></br>
 	                                		<!-- ADD AGENT FORM BEGINS-->
-	                                		<form name="Add_emp" id="Add_emp" method="post">
+	                                		<form name="Add_emp" id="Add_emp" method="post" enctype="multipart/form-data">
 	                                		<!-- table begins-->
 		     		 							<table class="ChPassFont" cellpadding="10" >
 						     		 				<tr>
@@ -64,6 +64,7 @@
 						     		 					<td><input type="text" name="Emp_name" id="Emp_name" required></td>
 						     		 					
 						     		 				</tr>
+
 						     		 				<tr>
 						     		 					<td>Primary/Moblie Number</td>
 						     		 					<td><input type="text" name="Emp_contact" id="Emp_contact" maxlength=10></td>
@@ -77,6 +78,10 @@
 						     		 				<tr>
 						     		 					<td>Enter Employee Email</td>
 						     		 					<td><input type="email" name="Emp_email" id="Emp_email" required></td>
+						     		 				</tr>
+													<tr>
+						     		 					<td>Upload Employee profile picture</td>
+						     		 					<td><input type="file" name="Img_path" id="Img_path" required></td>
 						     		 				</tr>
 						     		 				<tr>
 						     		 					<td>Enter Employee type</td>
@@ -198,19 +203,62 @@
 			 		$ee=$_POST['Emp_email'];
 			 		$et=$_POST['Emp_type'];
 					$password=generatePassword();
+					$newfilename="Emp_".$eid;
 				
-					$res=$database->insert("Employee","Branch_Id,Emp_id,Emp_name,Emp_address,Emp_contact,Emp_email,Emp_Status,Emp_type","'1','$eid','$en','$ea','$ec','$ee','1','$et'");
+				
+					
+					$target_dir = "images/";
+					$target_file = $target_dir.basename($_FILES["Img_path"]["name"]);
+					$uploadOk = 1;
+					$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+					// Check if image file is a actual image or fake image
+			
+						$check = getimagesize($_FILES["Img_path"]["tmp_name"]);
+						if($check !== false) {
+							echo "File is an image - " . $check["mime"] . ".";
+							$uploadOk = 1;
+						} else {
+							echo "File is not an image.";
+							$uploadOk = 0;
+						}
+
+					// Allow certain file formats
+					$target_file = $target_dir . $newfilename .".". $imageFileType;
+					if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+					&& $imageFileType != "gif" ) {
+						echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+						$uploadOk = 0;
+
+					}
+
+					// Check if $uploadOk is set to 0 by an error
+					if ($uploadOk == 0) {
+						echo "Sorry, your file was not uploaded.";
+					// if everything is ok, try to upload file
+					} else {
+						if (move_uploaded_file($_FILES["Img_path"]["tmp_name"], $target_file)) {
+							echo "The file ". basename( $_FILES["Img_path"]["name"]). " has been uploaded.";
+							}
+						}
+					
+					
+
+
+				
+					$res=$database->insert("Employee","Branch_Id,Emp_id,Emp_name,Emp_address,Emp_contact,Emp_email,Emp_Status,Emp_type,Emp_img","'1','$eid','$en','$ea','$ec','$ee','1','$et','$target_file'");
 					if($res ===true)
-						echo "<script>alert('Inserted successfully');</script>";
+					{					echo "<script>alert('$newfilename');</script>";
+
+						//echo "<script>alert('Inserted successfully');</script>";
+						}
+				
 					else{
 						echo "<script>alert('$database->error()');</script>";
 					}
 					
-					
-					 
-			}
 			
-			
+		}
+		
 			?>
 
 			<script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
+
 <html>
 	<?php include 'header.php';?>
 		<body style=>

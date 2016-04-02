@@ -60,7 +60,8 @@
 							if(!$res)
 								echo "<script>alert ('No such Active account found OR invalid Account number!') </script>";
 							else{
-
+								$yest=date('d.m.Y',strtotime("-1 days"));
+								echo $yest;
 								echo '<form name="closeacc" id="closeacc" method="post" action="#">
 								<table class="table table-hover">
 								<tr>
@@ -147,7 +148,8 @@
 							if(isset($_POST["closeacc"])){
 								$accno1=$_POST['accno1'];
 								$closedate=date('Y-m-d');
-								
+								$yest=date('d.m.Y',strtotime("-1 days"));
+								echo $yest;
 								$res=$database->update_emp_status("Accounts","Status='0',End_date='$closedate'","Account_no='$accno1'");
 								
 								if($res){
