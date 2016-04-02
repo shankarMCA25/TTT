@@ -204,9 +204,6 @@
 			 		$et=$_POST['Emp_type'];
 					$password=generatePassword();
 					$newfilename="Emp_".$eid;
-				
-				
-					
 					$target_dir = "images/";
 					$target_file = $target_dir.basename($_FILES["Img_path"]["name"]);
 					$uploadOk = 1;
@@ -215,10 +212,9 @@
 			
 						$check = getimagesize($_FILES["Img_path"]["tmp_name"]);
 						if($check !== false) {
-							echo "File is an image - " . $check["mime"] . ".";
 							$uploadOk = 1;
 						} else {
-							echo "File is not an image.";
+						
 							$uploadOk = 0;
 						}
 
@@ -237,7 +233,7 @@
 					// if everything is ok, try to upload file
 					} else {
 						if (move_uploaded_file($_FILES["Img_path"]["tmp_name"], $target_file)) {
-							echo "The file ". basename( $_FILES["Img_path"]["name"]). " has been uploaded.";
+							echo "The file and its data". basename( $_FILES["Img_path"]["name"]). " has been uploaded.";
 							}
 						}
 					
