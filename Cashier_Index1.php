@@ -1,4 +1,13 @@
+<?php require_once 'dbconn.php';
+	$db = new dbconn();
+	$yest=date('Y-m-d',strtotime("-1 days"));
+	
+	$res=$db->select("transaction","Count(account_no) as deposits","transaction_type=1 and transaction_date BETWEEN '$yest 00:00:00.00' AND '$yest 23:59:59.999'");
+	$notify['deposits'] = $res[0]['deposits'];
+	$res1=$db->select("transaction","Count(Distinct(Emp_id)) as depositno","transaction_type=1 and transaction_date BETWEEN '$yest 00:00:00.00' AND '$yest 23:59:59.999'");
 
+	$notify1['depositno']=$res1[0]['depositno'];
+?>
   <!-- container section start -->
   <section id="container" class="">
      
@@ -184,8 +193,9 @@
                             <li>
                                 <a href="#">
                                     <span class="label label-primary"><i class="icon_profile"></i></span> 
-                                    # Deposits # agents
-                                    <span class="small italic pull-right">5 mins</span>
+										<?php echo $notify['deposits']; ?> Deposit By <?php echo $notify1['depositno']; ?> Agents
+									
+                                    <span class="small italic pull-right"></span>
                                 </a>
                             </li>
                             <li>

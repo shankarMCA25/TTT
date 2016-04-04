@@ -5,7 +5,7 @@
     
     <!--<link rel="shortcut icon" href="img/favicon.png">-->
 
-    <title>Manager Homepage</title>
+    <title><?php echo $title; ?></title>
 
     <!-- Bootstrap CSS -->    
     <link href="css/bootstrap.min.css" rel="stylesheet">
