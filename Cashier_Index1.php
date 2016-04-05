@@ -290,7 +290,7 @@
                         <li><a class="" href="cashierdatewisereport.php">Date wise report</a></li>
 
                         <li><a class="" href="cashieragentreport.php">Agent wise report</a></li>
-                        
+                        <li><a class="" href="notifications.php">View Notifications</a></li>
 
                       </ul>
                                          

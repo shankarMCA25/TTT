@@ -33,9 +33,9 @@
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$id["Emp_id"].'">
-													Agent ID :&nbsp;&nbsp'.$id["Emp_id"].'&nbsp;&nbsp;Agent Name:&nbsp;&nbsp;'. $id["Emp_name"].'
+													<strong>Agent ID : </strong>&nbsp;&nbsp'.$id["Emp_id"].'&nbsp;&nbsp;<strong>Agent Name:</strong>&nbsp;&nbsp;'. $id["Emp_name"].'
 												</a>
-												<a class="pull-right">deposit: '.$total_deposit[0]['Deposit_amt'].' Withdrawal: 	'.
+												<a class="pull-right"><strong>Deposit: </strong>'.$total_deposit[0]['Deposit_amt'].' <strong>Withdrawal:</strong>'.
 												$total_withdrawal[0]["Withdrawal_amt"].'</a>
 											</h4>
 
