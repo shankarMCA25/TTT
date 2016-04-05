@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-	<?php include 'header.php';?>
+	<?php $title ='Cashier Homepage';
+	include 'header.php';?>
 	<body>
 		<?php include 'Cashier_Index1.php';?>
 			<!--main content start-->
