@@ -46,7 +46,7 @@
 			public function select($table_name="",$col="*",$where="1")
 			{
 				$sql="Select $col from $table_name where $where";
-//				echo $sql;
+				//echo $sql;
 				$res=$this->conn->query($sql);
 				if ($res->num_rows >0 )
 				{
