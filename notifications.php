@@ -46,8 +46,8 @@
 												<table class="table table-hover">
 													<tr>
 														<th>Account Number</th>
-														<th>Transaction Type</th>
 														<th>Transaction Amount</th>
+														<th>Transaction Type</th>
 													</tr>';
 													foreach($Account_info as $info)
 													echo '<tr>

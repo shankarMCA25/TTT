@@ -4972,3 +4972,9 @@ span.customSelect.changed {
 .textcenter{
 	 text-align: center;
 }
+.wrapper-no-margin {
+    display: inline-block;
+    
+    padding: 15px;
+    width: 100%;
+}

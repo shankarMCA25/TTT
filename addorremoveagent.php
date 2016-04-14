@@ -349,7 +349,7 @@
 							minlength:"Enter a Vaild Address"
 						},//of Emp_address  
 					}//Of .message
-				})//Of #add_emp validate function
+				})//Of # validate function
 			})//of ready function
 			
 			</script>

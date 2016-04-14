@@ -16,7 +16,12 @@
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 								<div class="info-box dark-bg">
 									<i class="fa fa-male"></i>
-									<div class="count	">6.674</div>
+									<div class="count">
+									<?php 
+										$db = new dbconn();
+										$res=$db->select("Employee","Count(Emp_id) as Active_agent","Emp_type=3 And Emp_Status=1");
+										echo $res[0]['Active_agent'];
+									?></div>
 									<div class="title">Total Active Agents</div>						
 								</div><!--/.info-box-->			
 							</div><!--/.col-->
@@ -24,7 +29,12 @@
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 								<div class="info-box dark-bg">
 									<i class="fa fa-users"></i>
-									<div class="count">7.538</div>
+									<div class="count">
+									<?php
+									$res=$db->select("Accounts","Count(Account_no) as Active_acc","Status=1");
+									echo $res[0]['Active_acc'];
+									?>
+									</div>
 									<div class="title">Total Active Accounts</div>						
 								</div><!--/.info-box-->			
 							</div><!--/.col-->	
