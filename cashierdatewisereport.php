@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<?php
-	$title ='Date-wise report Homepage';
+	$title ='Date-wise Account report Homepage';
 	include 'header.php';?>
 	<body>
 			<?php include 'Cashier_Index1.php';
@@ -22,7 +22,7 @@
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in">
 									<div class="panel-body">
-										<form action="#" name="Account_date_wise_report" method="post" id="Account_date_wise_report">
+										<form action="accreportdetail.php" name="Account_date_wise_report" method="post" id="Account_date_wise_report">
 										<section class="row">
 											<div class="col-md-3 hidden-xs">Enter account number</div>
 											<div class="col-md-3 hidden-xs">Select Start date</div>
@@ -74,25 +74,25 @@
     <script>
 	$(function(){
 		$("#Acc_startdate").datepicker({
-			dateFormat:"dd/mm/yy",
+			dateFormat:"yy-mm-dd",
 			maxDate:0
 			});
 		});
 	$(function(){
 		$("#Agent_startdate").datepicker({
-			dateFormat:"dd/mm/yy",
+			dateFormat:"yy-mm-dd",
 			maxDate:0
 			});
 		});
 		$(function(){
 		$("#Acc_enddate").datepicker({
-			dateFormat:"dd/mm/yy",
+			dateFormat:"yy-mm-dd",
 			maxDate:0
 			});
 		});
 		$(function(){
 		$("#Agent_enddate").datepicker({
-			dateFormat:"dd/mm/yy",
+			dateFormat:"yy-mm-dd",
 			maxDate:0
 			});
 		});
