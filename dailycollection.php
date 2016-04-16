@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 
-	<?php include 'header.php';?>
+	<?php
+	$title ='Daily collection page';
+	include 'header.php';?>
 	<body>
-		<?php include 'Cashier_Index1.php';?>
-			<!--main content start-->
-      		<section id="main-content">
-     		 	<section class ="wrapper" style="width:100%;height:100%">
-     		 		<div> <!-- change password title-->
-     		 			<h2 class="lite">Daily Collection</h2>
-     		 			<center>
-     		 				<!-- Form begins -->
-	     		 			<form name="changepassword" method="get">
-	     		 			<!-- table begins-->
-		     		 			<table class="ChPassFont tblcenter"  cellpadding="10" >
-		     		 				<tr>
-		     		 					<td>Collection Agent Name</td>
-										<td>Amount Received</td>
-		     		 					
-		     		 				</tr>
-		     		 			</table>
-		     		 			<hr>
-		     		 			<table>
-		     		 				<tr class="tblcenter">
-		     		 					<td>
-		     		 						<input type="submit" name="chpswd" value="Submit">
-		     		 					</td>
-		     		 					<td>
-		     		 						<input type="button" name="pswdcancel" value="Cancel">
-		     		 					</td>
-		     		 				</tr>
-		     		 			</table>
-	     		 			<!--table ends -->
-	     		 			</form>
-	     		 			<!--form ends-->
-     		 			</center>
-   			 		</div>
-				</section>
-     			<!--main content end-->
-  			</section>
-  			<!-- container section start -->
+		<?php include 'Cashier_Index1.php';
+		
+		$count=1;
+		$agent_collection=$db->select("Accounts","Distinct(Emp_id) as Employee_id,SUM(Daily_amt) as Daily_collection","1");
+		?>
+		 <!-- page start-->
+		<section id="main-content">
+			<section class="wrapper">											
+				<div class="row">
+					<h2 class="lite tblcenter">Daily collection</h2>
+						<div class="col-lg-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>#</th>
+											<th>Agent ID</th>
+											<th>Agent Name</th>
+										<th>Daily Collection</th>
+									</tr>
+								</thead>
+								<tbody>
+								<?php 
+								foreach($agent_collection as $display){
+									$agent=$db->select("Employee","Emp_name","Emp_id='".$display['Employee_id']."'");
+									echo '
+								<tr>
+										<td>'.$count.'</td>
+										<td>'.$display['Employee_id'].'</td>
+										<td>'.$agent[0]['Emp_name'].'</td>
+										<td>'.$display['Daily_collection'].'</td>
+										
+								</tr>';
+								$count++;
+								}
+						
+								?>
+								</tbody>
+							</table>
+						</div>
+				</div>
+			</section>
+		</section>
+	      <!-- page end-->
+			
 		<?php include 'footer.php';?>
 		<!--Form to change the passwords of manager-->
 		

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html>
-	<?php include 'header.php';?>
+	<?php
+	$title='Agent report generation';
+	include 'header.php';?>
 		<body style=>
 			<?php include 'Cashier_Index1.php';?>
 			<!--main content start-->
@@ -9,7 +11,7 @@
      		 	<section class ="wrapper" style="width:100%;height:100%">
                    <!--Date wise report generation -->
                    <div class="ChPassFont">
-     		 	   <h3>Welcome to Agent report generation</h3>
+     		 	   <h3 class="lite tblcenter">Welcome to Agent report generation</h3>
                     <div id="Remove_Agent" class="tab-pane ChPassFont">
                         <hr><h4>
                                 <form name="revagntfrm" id="rmvagntfrm">

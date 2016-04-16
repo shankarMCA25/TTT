@@ -7,8 +7,9 @@
 			<?php include 'Cashier_Index1.php';
 			?>
 			<!--main content start-->
-      		<section id="main-content">
-				<h2 class="page-header">Welcome to date wise report generation</h2>
+      		<section id="main-content">     		 
+				<section class ="wrapper">
+				<h2 class="lite tblcenter">Welcome to date wise report generation</h2>
 					<!--Date wise report generation -->
 					<!-- Collapse Start-->
 						<div class="panel-group" id="accordion">
@@ -67,7 +68,8 @@
 						</div>
 					<!-- Collapse End-->
 					<hr>
-    		
+    		</section>
+			</section>
 	</body>
 	<!--Scripts-->
 	     	<?php include 'footer.php';?>

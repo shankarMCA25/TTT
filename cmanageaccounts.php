@@ -10,7 +10,7 @@
      		 	<section class ="wrapper" style="width:100%;height:100%">
      		 		<div> 
      		 			<!-- change password title-->
-     		 			<h2 class="lite">Edit accounts</h2>
+     		 			<h2 class="lite tblcenter">Edit accounts</h2>
      		 			</br></br>
 						<!--tab nav start-->
 	                      	<section class="panel">
@@ -32,13 +32,10 @@
 	                                		<h2>Enter Account Number</h2>
 	                                		<hr></br>
 	                                		<!-- ADD AGENT FORM BEGINS-->
-	                                		<form name="accsearch" id="accsearch" action="Edit_Account_cx.php">
+	                                		<form name="accsearch" id="accsearch" action="Edit_Account_cx.php" method="post">
 	                                		<!-- table begins-->
 		     		 							<table class="ChPassFont" cellpadding="10" >
-						     		 				<tr>
-						     		 					<td>Enter Bank ID</td>
-						     		 					<td><input type="text" name="Bankid" id="Bankid" required></td>
-						     		 				</tr>
+						     		 				
 						     		 				<tr>
 						     		 					<td>Enter Branch ID</td>
 						     		 					<td><input type="text" name="Branchid" id="Branchid" required></td>
@@ -65,9 +62,9 @@
 	                                  		<h2>Remove agent</h2>
 	                                  		<hr></br>
 	                                  		<table class="ChPassFont" cellpadding="10" >
-	                                  		<form name="revagntfrm" id="rmvagntfrm">
+	                                  		<form name="revagntfrm" id="rmvagntfrm" method="post">
 		                                  		
-		                                  			<tr><td>Bank Id &nbsp;</td><td><input type="text" name="bankid" id="bankid">&nbsp;&nbsp;</td></tr>
+		                                  			
 			                                  		<tr><td>Branch Id </td><td><input type="text" name="branchid" id="branchid">&nbsp;&nbsp;</td></tr>
 			                                  		<tr><td>Search By Agent Id</td><td> &nbsp;<input type="text" name="agentid" id="agentid">&nbsp;&nbsp;</td></tr>
 			                                  		<tr><td>Search By Agent name</td> <td>&nbsp;<input type="text" name="agentname" id="agentname"></td></tr>

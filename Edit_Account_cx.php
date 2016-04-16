@@ -32,10 +32,7 @@
 	                                		<form name="addagent" id="addagent">
 	                                		<!-- table begins-->
 		     		 							<table class="ChPassFont" cellpadding="10" >
-						     		 				<tr>
-						     		 					<td>Bank ID</td>
-						     		 					<td><input type="text" name="Bankid" id="Bankid" required></td>
-						     		 				</tr>
+						     		 				
 						     		 				<tr>
 						     		 					<td>Branch ID</td>
 						     		 					<td><input type="text" name="Branchid" id="Branchid" required></td>
@@ -54,10 +51,7 @@
 						     		 					<td>Upload Image</td>
 						     		 					<td><input type="file" name="pic" accept="image/*"></td>
 						     		 				</tr>
-						     		 				<tr>
-						     		 					<td>QR CODE</td>
-						     		 					<td><input type="file" name="pic" accept="image/*">Query to fetch the QR CODE FROM DB</td>
-						     		 				</tr>
+						     		 				
 						     		 				<tr>
 						     		 					<td>Primary/Moblie Number</td>
 						     		 					<td><input type="number"  name="Pno" maxlength="10" required></td>
@@ -68,6 +62,9 @@
 						     		 				</tr>
 						     		 				<tr>
 						     		 					<td>Moblie updates</td><td> <input type="checkbox" name="message_mob" id="mm"></td>
+						     		 				</tr>
+													<tr>
+						     		 					<td>Email updates</td><td> <input type="checkbox" name="message_email" id="em"></td>
 						     		 				</tr>
 						     		 				<tr>
 						     		 						<td>Address&nbsp;&nbsp;&nbsp;</td>
