@@ -32,7 +32,7 @@
 											<div class="col-md-3"><div class="clearfix visible-xs">Acc no </div><input type="text" name="Accno" id="Accno" class="form-control" required></div>
 											<div class="col-md-3"><div class="clearfix visible-xs ">start date </div><input type="text" name="Acc_sdate" id="Acc_startdate" class="form-control datepicker" required></div>
 											<div class="col-md-3"><div class="clearfix visible-xs">end date </div><input type="text" name="Acc_edate" id="Acc_enddate" class="form-control" required></div>
-											<div class="col-md-3"><input type="submit" name="Agent_dtrptgen" id="Agent_dtrptgen" class="btn btn-primary" value="Submit"></div>
+											<div class="col-md-3"><input type="submit" name="Account_date_wise_report" id="acc_dtrptgen" class="btn btn-primary" value="Submit"></div>
 										</section>
 										</form>
 									</div>
@@ -48,7 +48,7 @@
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse">
                                   <div class="panel-body">
-                                    <form action="agentreportdetail.php" name="Agent_date_wise_report" method="post" id="Agent_date_wise_report">
+                                    <form action="accreportdetail.php" name="Agent_date_wise_report" method="post" id="Agent_date_wise_report">
 										<section class="row">
 											<div class="col-md-3 hidden-xs">Enter Agent Id</div>
 											<div class="col-md-3 hidden-xs">Select Start date</div>
