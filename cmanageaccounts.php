@@ -2,7 +2,9 @@
 <html>
 	<?php 
 	$title ='Cashier';
-	include 'header.php';?>
+	include 'header.php';
+	//$branch_id=$_POST['']
+	?>
 		<body style=>
 			<?php include 'Cashier_Index1.php';?>
 			<!--main content start-->
@@ -46,7 +48,7 @@
 						     		 				</tr>
 						     		 				
 						     		 					<tr >
-						     		 						<td><input type="submit" name="submit" value="Search">
+						     		 						<td><input type="submit" name="Edit_Account_cx" value="Search">
 						     		 						</td>
 							     		 					<td><input type="button" name="pswdcancel" value="Cancel">
 							     		 					</td>

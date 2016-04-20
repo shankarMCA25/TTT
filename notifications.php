@@ -74,7 +74,7 @@
 				else
 				{
 					echo "<script>alert('No agents performed any transaction');</script>
-					<center><h1 >No agents performed any transaction</h1></center>
+					<div class='wrapper lite tblcenter'><h1 >No agents performed any transaction</h1></div>
 					";
 				}					
 				
