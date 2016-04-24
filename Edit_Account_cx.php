@@ -12,8 +12,24 @@
 			$Account_details=$db->select("Accounts","*","Account_no=$account_no");
 			$acc_name=$Account_details[0]['Name'];
 			$acc_address=$Account_details[0]['Address'];
-			
+			$acc_email=$Account_details[0]['Email'];
+			$acc_contact=$Account_details[0]['Phone_no'];
+			$acc_address=$Account_details[0]['Address'];
 			$agent_list=$db->select("Employee","Emp_name,Emp_id","Emp_type=3");
+			
+		}
+		if(isset($_POST["Edit_Account_cx"]))
+		{
+			$branch_id=$_POST['Branchid'];
+			$account_no=$_POST['Accnumber'];
+			$Account_details=$db->select("Accounts","*","Account_no=$account_no");
+			$acc_name=$Account_details[0]['Name'];
+			$acc_address=$Account_details[0]['Address'];
+			$acc_email=$Account_details[0]['Email'];
+			$acc_contact=$Account_details[0]['Phone_no'];
+			$acc_address=$Account_details[0]['Address'];
+			$agent_list=$db->select("Employee","Emp_name,Emp_id","Emp_type=3");
+			
 		}	
 	?>
 		<body>
@@ -43,7 +59,7 @@
 	                                	<div id="Add_Agent" class="tab-pane active">
 	                                		
 	                                		<!-- ADD AGENT FORM BEGINS-->
-	                                		<form name="addagent" id="addagent">
+	                                		<form name="Edit_cx_account" id="Edit_cx_account" action="#">
 	                                		<!-- table begins-->
 		     		 							<table class="ChPassFont" cellpadding="10" >
 						     		 				<tr>
@@ -78,26 +94,26 @@
 						     		 				
 						     		 				<tr>
 						     		 					<td>Primary/Moblie Number</td>
-						     		 					<td><input type="number"  name="Pno" maxlength="10" required></td>
+						     		 					<td><input type="number"  name="Pno" maxlength="10" value="<?php echo $acc_contact?>"></td>
 						     		 				</tr>
 						     		 				<tr>
-						     		 					<td>Alternate Number</td>
-						     		 					<td><input type="text" name="Altno"></td>
+						     		 					<td>Email Address</td>
+						     		 					<td><input type="text" name="Email_id" value="<?php echo $acc_email;?>"></td>
 						     		 				</tr>
 						     		 				<tr>
-						     		 					<td>Moblie updates</td><td> <input type="checkbox" name="message_mob" id="mm"></td>
+						     		 					<td>Moblie updates</td><td> <input type="checkbox" checked="checked" name="message_mob" id="mm"></td>
 						     		 				</tr>
 													<tr>
-						     		 					<td>Email updates</td><td> <input type="checkbox" name="message_email" id="em"></td>
+						     		 					<td>Email updates</td><td> <input type="checkbox" checked="checked" name="message_email" id="em"></td>
 						     		 				</tr>
 						     		 				<tr>
 						     		 						<td>Address&nbsp;&nbsp;&nbsp;</td>
 						     		 						<td>
-						     		 							<textarea rows="4" cols="47"></textarea>
+						     		 							<textarea rows="4" cols="47" value=""><?php echo $acc_address;?></textarea>
 						     		 						</td>
 						     		 					</tr>
 						     		 					<tr >
-						     		 						<td><input type="submit" name="submit" value="Add Agent">
+						     		 						<td><input type="submit" name="submit" value="Change account details">
 						     		 						</td>
 							     		 					<td><input type="button" name="pswdcancel" value="Cancel">
 							     		 					</td>
@@ -108,23 +124,7 @@
 	                                		<!-- ADD AGENT FORM ENDS-->
 	                                	</div>
 	                                	<!--ADD AGENT DIV CONTENTS END -->
-	                                	<!--REMOVE AGENT DIV CONTENTS BEGIN -->		
-	                                  	<!-- div id="Remove_Agent" class="tab-pane ChPassFont">
-	                                  		<h2>Remove agent</h2>
-	                                  		<hr></br>
-	                                  		<form name="revagntfrm" id="rmvagntfrm">
-		                                  		Bank Id &nbsp;<input type="text" name="bankid" id="bankid">&nbsp;&nbsp;
-		                                  		Branch Id &nbsp;<input type="text" name="branchid" id="branchid">&nbsp;&nbsp;
-		                                  		Search By Agent Id &nbsp;<input type="text" name="agentid" id="agentid">&nbsp;&nbsp;
-		                                  		Search By Agent name &nbsp;<input type="text" name="agentname" id="agentname">
-		                                  		<hr>	
-		                                  		</br><input type="submit" value="Search "name="rmvagentsrch" id="rmvagentsrch"></br>
-
-		       	                           	</form>
-
-	                                  	</div> -->
-	                                  	
-	                                  	<!--REMOVE AGENT DIV CONTENTS END -->
+	                                	
 
 									</div>
 								</div>

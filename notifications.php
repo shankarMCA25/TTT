@@ -16,6 +16,7 @@
 				//Check If Any agents have done any kind of transaction on Yesterday's day
 				if($Agent_ids)
 				{
+					echo '<div class="wrapper lite tblcenter"><h1>Detail Notifications</h1></div>';
 					//Select Empid and name of agents and show those who have performed transaction
 					$Agent_info=$db->Select("Employee","Emp_id,Emp_name","Emp_type=3");
 					foreach($Agent_info as $id)

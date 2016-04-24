@@ -22,14 +22,6 @@
 				if ($this->conn->connect_error) {
 					die("Connection failed: " . $conn->connect_error);
 				} 
-				
-
-//				$this->conn = mysqli_connect($servername,$username,$password,$dbname);
-//				if($this->conn->mysqli_connect_errno())
-//				{
-//					echo "Failed to connect to MySQL: " . mysqli_connect_error();
-//				}
-//			}
 			}
 			public function insert($table_name="",$col="*",$values="")
 			{
@@ -46,7 +38,7 @@
 			public function select($table_name="",$col="*",$where="1")
 			{
 				$sql="Select $col from $table_name where $where";
-				echo $sql;
+				//echo $sql;
 				$res=$this->conn->query($sql);
 				if ($res->num_rows >0 )
 				{
@@ -75,11 +67,6 @@
 				$sql="UPDATE  $table_name SET  $col WHERE  $where";
 				echo '<script> alert('.$sql.')</script>';
 				return true;
-				/*$res=$this->conn->query($sql);
-				if($res)
-					return true;
-				else 
-					return false;*/
 			}
 	}
 

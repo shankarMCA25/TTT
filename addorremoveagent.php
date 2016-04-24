@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<?php 
-	
+	$title='Add Agent';
 	include 'header.php';
 	$database=new dbconn();
 	?>
@@ -353,6 +353,7 @@
 			})//of ready function
 			
 			</script>
+			
 			</body>
 
 	</html>

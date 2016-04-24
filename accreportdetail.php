@@ -24,7 +24,7 @@
 					//<!--main content start-->
 					echo '<section id="main-content">
 					
-						<h2 class="page-header">Welcome to date wise report generation</h2>';
+					<h2 class="lite tblcenter">Welcome to date wise report generation</h2>';
 						$res=$db->select("Accounts","*","Account_no=$acc_no");
 						$acc_name=$res[0]['Name'];
 						$acc_address=$res[0]['Address'];
