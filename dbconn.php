@@ -38,7 +38,7 @@
 			public function select($table_name="",$col="*",$where="1")
 			{
 				$sql="Select $col from $table_name where $where";
-				//echo $sql;
+				//echo $sql."<br>";
 				$res=$this->conn->query($sql);
 				if ($res->num_rows >0 )
 				{
@@ -55,8 +55,9 @@
 			public function update_emp_status($table_name="",$col="*",$where="1")
 			{
 				$sql="UPDATE  $table_name SET  $col WHERE  $where";
-				
+				//echo $sql;
 				$res=$this->conn->query($sql);
+				//echo $res;
 				if($res)
 					return true;
 				else 

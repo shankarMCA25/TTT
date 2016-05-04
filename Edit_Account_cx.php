@@ -18,19 +18,8 @@
 			$agent_list=$db->select("Employee","Emp_name,Emp_id","Emp_type=3");
 			
 		}
-		if(isset($_POST["Edit_Account_cx"]))
-		{
-			$branch_id=$_POST['Branchid'];
-			$account_no=$_POST['Accnumber'];
-			$Account_details=$db->select("Accounts","*","Account_no=$account_no");
-			$acc_name=$Account_details[0]['Name'];
-			$acc_address=$Account_details[0]['Address'];
-			$acc_email=$Account_details[0]['Email'];
-			$acc_contact=$Account_details[0]['Phone_no'];
-			$acc_address=$Account_details[0]['Address'];
-			$agent_list=$db->select("Employee","Emp_name,Emp_id","Emp_type=3");
-			
-		}	
+	
+		
 	?>
 		<body>
 			<!--main content start-->
@@ -38,7 +27,7 @@
      		 	<section class ="wrapper" style="width:100%;height:100%">
      		 		<div> 
      		 			<!-- change password title-->
-     		 			<h2 class="lite">Account details</h2>
+     		 			<h2 class="lite tblcenter">Account details</h2>
      		 			
 						<!--tab nav start-->
 	                      	<section class="panel">
@@ -59,12 +48,15 @@
 	                                	<div id="Add_Agent" class="tab-pane active">
 	                                		
 	                                		<!-- ADD AGENT FORM BEGINS-->
-	                                		<form name="Edit_cx_account" id="Edit_cx_account" action="#">
+	                                		<form name="Edit_cx_account_update" id="Edit_cx_account_update" action="#" method="post">
+											<input type="hidden" name="Edit_Account_cx" value="<?php echo $_POST["Edit_Account_cx"]; ?>">
+											<input type="hidden" name="Branchid" value="<?php echo $_POST["Branchid"]; ?>">
+											<input type="hidden" name="Accnumber" value="<?php echo $_POST["Accnumber"]; ?>">
 	                                		<!-- table begins-->
 		     		 							<table class="ChPassFont" cellpadding="10" >
 						     		 				<tr>
 														<td>Account Number</td>
-														<td><input type="text" value="<?php echo $account_no;?>" disabled ></td>
+														<td><input type="text" name="account_no" value="<?php echo $_POST["Accnumber"]; ?>" disabled ></td>
 													</tr>
 						     		 				<tr>
 						     		 					<td>Branch ID</td>
@@ -109,13 +101,13 @@
 						     		 				<tr>
 						     		 						<td>Address&nbsp;&nbsp;&nbsp;</td>
 						     		 						<td>
-						     		 							<textarea rows="4" cols="47" value=""><?php echo $acc_address;?></textarea>
+						     		 							<textarea rows="4" cols="47" name="address" value=""><?php echo $acc_address;?></textarea>
 						     		 						</td>
 						     		 					</tr>
 						     		 					<tr >
-						     		 						<td><input type="submit" name="submit" value="Change account details">
+						     		 						<td><input type="submit" name="submit" value="Change account details" onclick="return confirm('Are you sure you want to update the changes?')">
 						     		 						</td>
-							     		 					<td><input type="button" name="pswdcancel" value="Cancel">
+							     		 					<td><input type="button" name="pswdcancel" value="Cancel" onclick="history.back();">
 							     		 					</td>
 							     		 				</tr>
 						     		 			</table>
@@ -132,6 +124,41 @@
 	                </div>
 
      		 	</section>
+<?php 		if(isset($_POST["submit"]))
+		{
+			
+			$branch_id=$_POST['Branchid'];
+			$account_no1=$_POST['Accnumber'];
+			$acc_name=$_POST['fullname'];
+			$acc_email=$_POST['Email_id'];
+			$acc_contact=$_POST['Pno'];
+			$acc_address=$_POST['address'];
+			$agent_no=$_POST['Select_agent'];
+			if($_POST['message_mob']=='on')
+			{
+				$mopt=1;
+			}
+			else
+			{
+				$mopt=0;
+			}
+			
+			if($_POST['message_email']=='on')
+			{
+				$eopt=1;
+			}
+			else
+			{
+				$eopt=0;
+			}
+			
+		
+			$pic;
+			
+			$res=$db->update_emp_status("accounts","name='$acc_name',address='$acc_address',phone_no=$acc_contact,email='$acc_email',email_status=$eopt,msg_status=$mopt,Emp_id=$agent_no","Account_no=$account_no1");
+			echo "<script type='text/javascript'>alert('Updated successfully'); window.location.replace('cmanageaccounts.php');</script>";
+		}
+		?>				
      		 	<?php include 'footer.php';?>
 			</body>
 	</html>
