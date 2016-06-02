@@ -2563,6 +2563,8 @@ ul.ft-link li a i {
     -webkit-border-radius: 50%;
     border: 2px solid #688a7e;
     display: inline-block;
+    width:35px;
+    height:35px;
 }
 .profile-ava img.simple{
     border-radius: 50%;
@@ -4977,4 +4979,14 @@ span.customSelect.changed {
     
     padding: 15px;
     width: 100%;
+}
+
+
+
+* {
+    margin: 0 auto; 
+    padding: 0;
+}
+body {
+    background-color: #F2F2F2;
 }

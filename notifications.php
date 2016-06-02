@@ -2,8 +2,9 @@
 <?php 
 	$title ='notifications';
 	include 'header.php';
-	include 'Cashier_Index1.php';
+	include 'Manager_Index11.php';
 	require_once 'dbconn.php';
+	
 ?>
 <html>
 	

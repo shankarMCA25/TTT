@@ -4,7 +4,7 @@
 	$title ='Daily collection page';
 	include 'header.php';?>
 	<body>
-		<?php include 'Cashier_Index1.php';
+		<?php include 'Manager_Index11.php';
 		
 		$count=1;
 		$agent_collection=$db->select("Accounts","Distinct(Emp_id) as Employee_id,SUM(Daily_amt) as Daily_collection","1");

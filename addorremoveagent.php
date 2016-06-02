@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<?php 
-	$title='Add Agent';
+	
 	include 'header.php';
-	$database=new dbconn();
 	?>
 		<body style=>
-			<?php include 'Manager_Index1.php';?>
+			<?php include 'Manager_Index11.php';?>
 			<!--main content start-->
       		<section id="main-content">
      		 	<section class ="wrapper" style="width:100%;height:100%">
      		 		<div> 
+					<br>
      		 			<!-- change password title-->
-     		 			<h2 class="lite">Add or Remove Employee</h2>
+     		 			<h2 class="lite tblcenter">Manage Employee</h2>
      		 			</br></br>
 						<!--tab nav start-->
 	                      	<section class="panel">  
 	                        	<header class="panel-heading tab-bg-primary ">
 		                            <ul class="nav nav-tabs">
 		                                <li <?php if(isset($_POST["submit"]) || !(isset($_POST["rmvagentsrch"]) || isset($_POST["submit"]))) echo "class='active'";?> >
-		                                    <a data-toggle="tab" href="#Add_Agent">Add Employee</a>
+		                                    <a data-toggle="tab" href="#Add_Agent">Add New Employee</a>
 		                                </li>
 		                                <li <?php if(isset($_POST["rmvagentsrch"])) echo "class='active'";?> >
 		                                    <a data-toggle="tab" href="#Remove_Agent">Remove Employee</a>
@@ -36,7 +36,7 @@
 	                                		<!-- ADD AGENT FORM BEGINS-->
 	                                		<form name="Add_emp" id="Add_emp" method="post" enctype="multipart/form-data">
 	                                		<!-- table begins-->
-		     		 							<table class="ChPassFont" cellpadding="10" >
+		     		 							<table class="table" cellpadding="10" >
 						     		 				<tr>
 													<td>Select Branch id</td>
 													<td>
@@ -131,10 +131,11 @@
 											{
 												$res = null;
 												if ($_POST['agentid'] != ""){
-													$res=$database->select("Employee","Emp_id,Emp_name,Emp_type","Emp_id='$emp_id' AND Emp_Status='1'");	
+													$res=$db->select("Employee","Emp_id,Emp_name,Emp_type","Emp_id='$emp_id' AND Emp_Status='1'");	
 												}
 												else if ($_POST['agentname'] != ""){
-													$res=$database->select("Employee","Emp_id, Emp_name, Emp_type","Emp_name='$emp_name' AND Emp_Status='1'");
+													$res=$db->select("Employee","Emp_id, Emp_name, Emp_type","Emp_name='$emp_name' AND Emp_Status='1'");
+													
 												}
 												
 												echo '<center> <table class="table table-striped table-advance table-hover">
@@ -153,9 +154,9 @@
 																'</td>'.
 																'<td>'.$result['Emp_name'].
 																'</td><td>';
-																if($result['Emp_type']=='1'){ echo "Agent"; } else {echo "officer";}
+																if($result['Emp_type']=='3'){ echo "Agent"; } else {echo "officer";}
 																echo '<td>
-																	<a class="btn btn-danger"  href="Delete.php?Emp_id='.$result['Emp_id'].'">Remove agent <i class="icon_close_alt2"></i></a></input>
+																	<a class="btn btn-danger"  onclick="return confirm(\'Are you sure you want to delete this Employee?.\');" href="Delete.php?Emp_id='.$result['Emp_id'].'">Remove agent <i class="icon_close_alt2"></i></a></input>
 																</td>
 				
 															</td>
@@ -241,7 +242,7 @@
 
 
 				
-					$res=$database->insert("Employee","Branch_Id,Emp_id,Emp_name,Emp_address,Emp_contact,Emp_email,Emp_Status,Emp_type,Emp_img","'1','$eid','$en','$ea','$ec','$ee','1','$et','$target_file'");
+					$res=$db->insert("Employee","Branch_Id,Emp_id,Emp_name,Emp_address,Emp_contact,Emp_email,Emp_Status,Emp_type,Emp_img","'1','$eid','$en','$ea','$ec','$ee','1','$et','$target_file'");
 					if($res ===true)
 					{					echo "<script>alert('$newfilename');</script>";
 
@@ -249,7 +250,7 @@
 						}
 				
 					else{
-						echo "<script>alert('$database->error()');</script>";
+						echo "<script>alert('$db->error()');</script>";
 					}
 					
 			

@@ -10,7 +10,7 @@
                    <!--Date wise report generation -->
                    <div class="ChPassFont">
      		 	   <h3>Welcome to Agent report generation</h3>
-                    <div id="Remove_Agent" class="tab-pane ChPassFont">
+                    <div id="Remove_Agent" action="" class="tab-pane ChPassFont">
                         <hr><h4>
                                 <form name="revagntfrm" id="rmvagntfrm">
                                     <table class="table">
@@ -21,7 +21,7 @@
                                             <td><input type="text" name="agentname" id="agentname"></td>
                                         </tr>
                                         <tr>
-                                            <td><input type="submit" value="Search "name="rmvagentsrch" id="rmvagentsrch"></td>
+                                            <td><input type="submit" value="Search" name="Account_date_wise_report" id="rmvagentsrch"></td>
                                         </tr>
                                     </table>
                                 </form>
@@ -34,5 +34,8 @@
      		 	</section>
      		</section>
      	</body>
+		<?php 
+			if(isset($_POST["Account_date_wise_report"]))
+		?>
      	<?php include 'footer.php';?>
 </html>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 	<?php
-	
+	$title ='Detail Agent Report';
 	include 'header.php';
-	include 'manager_index11.php';
-	$page ='Detail Agent Report';
 	
+	include 'Manager_Index11.php';
 	
+			
+	require_once 'dbconn.php';
 	?>
 	<body>
 		<!--PHP FOR ACCOUNT HOLDER BEGINS HERE-->
@@ -37,10 +38,8 @@
 						$acc_start_date=$res[0]['Start_date'];
 						$acc_end_date=$res[0]['End_date'];
 						$acc_agent_id=$res[0]['Emp_id'];
-						$image_img=$res[0]['prof_img'];
 						$acc_balance=$db->select("Transaction","Account_balance,MAX(Transaction_date)","Account_no=$acc_no");
 						$acc_detail=$db->select("Transaction","*","Account_no=$acc_no and date(Transaction_date) between '$acc_start_date' and '$acc_end_date'");												(($acc_detail===false)?"<script>alert('Invalid date or the agent has not performed any transaction during the specified dates \n \n Try again');</script>":"");
-					//	echo '<script> alert("")</script>';
 					echo '
 						<!--Div to display report results-->
 						<section class="wrapper-no-margin">
@@ -52,9 +51,9 @@
 											<div class="col-lg-2 col-sm-2">
 												<!--Name above image-->
 												Account Holders Name:<h4>'.$acc_name.'</h4>               
-												<div class="follow-ava">
-													<img src="'.$image_img.'" alt="">
-												</div>
+												<!--<div class="follow-ava">
+													<img src="img/profile-widget-avatar.jpg" alt="">
+												</div> -->
 												<!--Agent type-->
 												
 											</div>
@@ -66,7 +65,7 @@
 												<h6>
 													<span><i class="icon_calendar"></i>Account Created on '.$acc_start_date.'</span><p></p><p>
 													<span><i class="icon_calendar"></i>Account Closed on  '.$acc_end_date.'</span><p></p><p>
-													<span><i class="icon_pin_alt"></i>Address : '.nl2br($acc_address).'</span></p>
+													<span><i class="icon_pin_alt"></i>Address : '.$acc_address.'</span></p>
 												<h6>
 											</div>
 											<div class="col-lg-2 col-sm-6 follow-info weather-category">
@@ -110,7 +109,6 @@
 							</div>
 							<!--div Row end-->
 							';
-							
 							echo '
 								  <!-- page start-->
 							<div class="row">
@@ -170,7 +168,6 @@
 																						<td>'.$display['Amount'].'</td>
 																						<td>'.$display['Transaction_type'].'</td>
 																				</tr>';
-																				$count++;
 																				}
 																				echo'
 																				

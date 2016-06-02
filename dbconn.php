@@ -1,6 +1,6 @@
 <?php
 	//In login 1 manager 2 officer 3 agent 4 account holders
-
+// 1. withdraw  0. Deposit
 	
 	$servername = "localhost";
 	$username = "root";
@@ -23,10 +23,18 @@
 					die("Connection failed: " . $conn->connect_error);
 				} 
 			}
+			public function real_escape($string="")
+			{
+				
+				$string=mysqli_real_escape_string($conn,$string);
+					return $string;
+				
+			}
 			public function insert($table_name="",$col="*",$values="")
 			{
 				//when a new agent is added get the agent type and insert into loging and employee table
 				$sql="INSERT into $table_name($col) values($values)";
+				echo $sql;
 				$res=$this->conn->query($sql);
 				if($res ===true){
 					return true;
@@ -38,7 +46,7 @@
 			public function select($table_name="",$col="*",$where="1")
 			{
 				$sql="Select $col from $table_name where $where";
-				//echo $sql."<br>";
+				// echo $sql."<br><br>";
 				$res=$this->conn->query($sql);
 				if ($res->num_rows >0 )
 				{

@@ -4,10 +4,11 @@
 	$title ='Date-wise Account report Homepage';
 	include 'header.php';?>
 	<body>
-			<?php include 'Manager_Index11.php';
+			<?php include 'Manager_Index1.php';
 			?>
 			<!--main content start-->
-      		<section id="main-content">     		 
+      		<section id="main-content">
+<br><br>			
 				<section class ="wrapper">
 				<h2 class="lite tblcenter">Welcome to date wise report generation</h2>
 					<!--Date wise report generation -->

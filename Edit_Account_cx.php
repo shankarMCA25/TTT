@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
 	<?php 
-		$title='Change Account details';
+		
 		include 'header.php';
-		include 'Cashier_Index1.php';
-		require_once 'dbconn.php';
+		include 'Manager_Index11.php';
+		
+		$page='Change Account details';
 		if(isset($_POST["Edit_Account_cx"]))
 		{
 			$branch_id=$_POST['Branchid'];
@@ -28,7 +29,7 @@
      		 		<div> 
      		 			<!-- change password title-->
      		 			<h2 class="lite tblcenter">Account details</h2>
-     		 			
+     		 			<br>
 						<!--tab nav start-->
 	                      	<section class="panel">
 	                        	<header class="panel-heading tab-bg-primary ">
@@ -53,7 +54,7 @@
 											<input type="hidden" name="Branchid" value="<?php echo $_POST["Branchid"]; ?>">
 											<input type="hidden" name="Accnumber" value="<?php echo $_POST["Accnumber"]; ?>">
 	                                		<!-- table begins-->
-		     		 							<table class="ChPassFont" cellpadding="10" >
+		     		 							<table class="ChPassFont table" >
 						     		 				<tr>
 														<td>Account Number</td>
 														<td><input type="text" name="account_no" value="<?php echo $_POST["Accnumber"]; ?>" disabled ></td>
@@ -154,7 +155,7 @@
 			
 		
 			$pic;
-			
+			echo"<script>alert(".$acc_address.");</script>";
 			$res=$db->update_emp_status("accounts","name='$acc_name',address='$acc_address',phone_no=$acc_contact,email='$acc_email',email_status=$eopt,msg_status=$mopt,Emp_id=$agent_no","Account_no=$account_no1");
 			echo "<script type='text/javascript'>alert('Updated successfully'); window.location.replace('cmanageaccounts.php');</script>";
 		}

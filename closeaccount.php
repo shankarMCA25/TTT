@@ -25,7 +25,7 @@
 			</script>
       		<section id="main-content">
      		 	<section class ="wrapper" style="width:100%;height:100%">
-			 
+			 <br>
                    <!--Search account to close -->
      		 	   <div class="ChPassFont"   >
                         <form name="closeaccount" id="closeaccount" method="post" action="#" >

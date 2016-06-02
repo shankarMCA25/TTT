@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
 	<?php $title ='Cashier Homepage';
 	include 'header.php';?>
 	<body>
-		<?php include 'Cashier_Index1.php';?>
+		<?php include 'Manager_Index11.php';?>
 			<!--main content start-->
 			
       		<section id="main-content" >
@@ -39,10 +38,12 @@
 								</div><!--/.info-box-->			
 							</div><!--/.col-->	
 							
-							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+							<div class="col-lg-3 c ol-md-3 col-sm-12 col-xs-12">
 								<div class="info-box dark-bg">
 									<i class="fa fa-inr"></i>
-									<div class="count">4.362</div>
+									<div class="count"><?php $res=$res=$db->select("Transaction","Sum(amount) deposit_amount","Transaction_date BETWEEN '$yest 00:00:00.00' AND'$yest 23:59:59.999' And Transaction_type=1 ");
+										echo $res[0]['deposit_amount'];?>
+										</div>
 									<div class="title">Yesterday's Deposit</div>						
 								</div><!--/.info-box-->			
 							</div><!--/.col-->
@@ -50,7 +51,10 @@
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 								<div class="info-box dark-bg">
 									<i class="fa fa-cubes"></i>
-									<div class="count">1.426</div>
+									<div class="count">
+									 <?php $res=$db->select("Transaction","Sum(amount) withdraw_amount","Transaction_date BETWEEN '$yest 00:00:00.00' AND '$yest 23:59:59.999' And Transaction_type=1 ");
+										echo $res[0]['withdraw_amount']?>
+										</div>
 									<div class="title">Yesterday's Deposit</div>						
 								</div><!--/.info-box-->			
 							</div><!--/.col-->

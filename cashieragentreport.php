@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html>
 	<?php
 	$title='Agent report generation';
 	include 'header.php';?>
 		<body style=>
-			<?php include 'Cashier_Index1.php';?>
+			<?php include 'Manager_Index11.php';?>
 			<!--main content start-->
       		<section id="main-content">
      		 	<section class ="wrapper" style="width:100%;height:100%">
