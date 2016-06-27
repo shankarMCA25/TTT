@@ -22,7 +22,7 @@
 		                                    <a data-toggle="tab" href="#Add_Agent">Add New Employee</a>
 		                                </li>
 		                                <li <?php if(isset($_POST["rmvagentsrch"])) echo "class='active'";?> >
-		                                    <a data-toggle="tab" href="#Remove_Agent">Remove Employee</a>
+		                                    <a data-toggle="tab<?php if($ses_Emp_type!=1) echo "disable hide";?>" href="#Remove_Agent">Remove Employee</a>
 		                                </li>
 		                            </ul>
 	                          	</header>

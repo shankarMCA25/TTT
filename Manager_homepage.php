@@ -10,8 +10,6 @@
 		$day_of_week=array();
 		$deposit_of_week=array();
 		$withdraw_of_week=array();
-		echo '<script>alert("'.$ses_Emp_type.'")</script>';
-		echo '<script>alert("'.$ses_Emp_id.'")</script>';
 		
 		
 		for($x = 6; $x > 0; $x--)
@@ -68,11 +66,13 @@
 									  <div class="wrapper">
 										  <section class="panel">
 											  <header class="panel-heading">
-												  WeekLy Graph of deposit and withdraw
+												  Weekly Graph of deposit and withdraw 
 											  </header>
 											  <div class="panel-body text-center">
-												  <canvas id="line" height="300" width="450"></canvas>
+												  <canvas id="line" height="300" width="450"></canvas></br><span style="color:#B8CED9">Dr:Deposit</span>&nbsp;&nbsp;<span style="color:#DCDCDC">Cr:Credit</span>
+												  
 											  </div>
+
 										  </section>
 									  </div>   
 								</div>

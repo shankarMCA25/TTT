@@ -74,7 +74,7 @@
 			public function remove_acc($table_name="",$col="*",$where="1")
 			{
 				$sql="UPDATE  $table_name SET  $col WHERE  $where";
-				echo '<script> alert('.$sql.')</script>';
+				//echo '<script> alert('.$sql.')</script>';
 				return true;
 			}
 	}

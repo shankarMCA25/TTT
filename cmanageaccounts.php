@@ -45,7 +45,7 @@
 		                                  			
 			                                  		<tr><td>Branch Id </td><td><select name="branch_id" id="branch_id">
 												<?php
-													$db = new dbconn();
+													// $db = new dbconn();
 													$branches=$db->select("branch","Branch_Id");
 													foreach($branches as $row)
 													{
@@ -54,7 +54,7 @@
 												?></td></tr>
 												<tr>
 													<td>Account Holders name</td>
-													<td><input type="text" name="cx_name" id="cx_name" required></td>
+													<td><input type="text" name="cx_name" id="cx_name" min required></td>
 												</tr>
 												<tr>
 													<td>Account number </td>
@@ -155,14 +155,14 @@
 	                                		<!-- ADD AGENT FORM BEGINS-->
 	                                		<form name="accsearch" id="accsearch" action="Edit_Account_cx.php" method="post">
 	                                		<!-- table begins-->
-		     		 							<table class="ChPassFont" cellpadding="10" >
+		     		 							<table class="table" cellpadding="10" >
 						     		 				
 						     		 				<tr>
-						     		 					<td>Enter Branch ID</td>
+						     		 					<th>Enter Branch ID</th>
 						     		 					<td><input type="text" name="Branchid" id="Branchid" required></td>
 						     		 				</tr>
 						     		 				<tr>
-						     		 					<td>Enter Account Number</td>
+						     		 					<th>Enter Account Number</th>
 						     		 					<td><input type="text" name="Accnumber" id="Accnumber" required></td>
 						     		 				</tr>
 						     		 				
@@ -203,7 +203,6 @@
 					else{
 						$message_mob=0;
 					}
-					
 					$branch_id=$_POST['branch_id'];
 					$cx_name=$_POST['cx_name'];
 					$cx_accno=$_POST['cx_accno'];
@@ -213,10 +212,16 @@
 					$Img_path=$_POST['Img_path'];
 					$emp_id=$_POST['emp_id'];
 					$daily_amount=$_POST['daily_amount'];
+					$Img_path1="Profile_image";
 					$res=$db->insert("accounts","branch_id,Name,Account_no,address,phone_no,Email,Pass,Email_status,msg_status,daily_amt,Start_date,End_date,Status,Emp_id,Prof_img","'$branch_id','$cx_name','$cx_accno','$cx_address','$cx_contact','$cx_email','PASS','$message_email','$message_mob','$daily_amount',CURRENT_DATE,'9999-12-31',1,'$emp_id','Profile_image/$Img_path'");
+					if(move_uploaded_file($Img_path,"$Img_path1/$cx_accno"))
+					{
+						echo'<script>alert("Couldnot move")</script>';
+					}
 
 				}
 				?>
+		
      		 	<?php include 'footer.php';?>
 			</body>
 	</html>

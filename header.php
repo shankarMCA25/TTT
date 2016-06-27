@@ -14,7 +14,7 @@
 	if ($ses_Emp_type==2)
 			$title ='Cashier Homepage';
 		
-	$db=new dbconn();
+$db=new dbconn();
 ?>
 
   <head>

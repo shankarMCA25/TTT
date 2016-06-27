@@ -37,7 +37,7 @@
 												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$id["Emp_id"].'">
 													<strong>Agent ID : </strong>&nbsp;&nbsp'.$id["Emp_id"].'&nbsp;&nbsp;<strong>Agent Name:</strong>&nbsp;&nbsp;'. $id["Emp_name"].'
 												</a>
-												<a class="pull-right"><strong>Deposit: </strong>'.$total_deposit[0]['Deposit_amt'].' <strong>Withdrawal:</strong>'.
+												<a class="pull-right"><strong>Dr:Debit: </strong>'.$total_deposit[0]['Deposit_amt'].' <strong>Cr:Credit:</strong>'.
 												$total_withdrawal[0]["Withdrawal_amt"].'</a>
 											</h4>
 
@@ -57,7 +57,7 @@
 			
 														<th>'.$info["Amount"].'</th>
 														<th style="'.(($info["Transaction_type"]=='0')?"background-color:#ffe0e6":"background-color:#dff8e3").'">'.
-															(($info["Transaction_type"]=='0')?"Withdrawal":"Deposit")
+															(($info["Transaction_type"]=='0')?"Cr : Credit":"Dr : Debit")
 															.'</th>
 													</tr>';
 													

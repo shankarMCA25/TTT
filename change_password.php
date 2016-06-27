@@ -11,27 +11,25 @@
      		 	<section class ="wrapper" style="width:100%;height:100%">
      		 		<div> <!-- change password title-->
 					<br><br>
-     		 			<h2 class="lite tblcenter">Change password</h2>
-     		 			<center>
-     		 				<!-- Form begins -->
+     		 			<h2 class="lite tblcenter">Change password</h2>     		 				<!-- Form begins -->
 	     		 			<form name="changepassword" id="changepassword" method="post">
 	     		 			<!-- table begins-->
-		     		 			<table  cellpadding="10" >
-		     		 				<tr><thead>
-		     		 					<th>Enter previous password</th></thead>
+		     		 			<table  class="table">
+		     		 				<tr>
+		     		 					<th>Enter previous password</th>
 		     		 					<td><input type="password" name="curpass" id="curpass" required></td>
-		     		 				</tr><br>
-		     		 				<tr><thead>
+		     		 				</tr>
+		     		 				<tr>
 		     		 					<th>
-		     		 					Enter new password</th></thead>
+		     		 					Enter new password</th>
 		     		 					
 		     		 					<td><input type="password"  name="newpass" id ="newpass" minlength="6" required></td>
-		     		 				</tr><br>
-		     		 				<tr><thead><th>
-		     		 					Re-Enter the new password</th></thead>
+		     		 				</tr>
+		     		 				<tr><th>
+		     		 					Re-Enter the new password</th>
 		     		 					<td><input type="password" name="repassword" id="repassword" required></td>
-		     		 				</tr><br>
-		     		 				<tr ">
+		     		 				</tr>
+		     		 				<tr>
 		     		 					<td><input type="submit" name="chpswd" value="Change Password">
 		     		 					</td>
 		     		 					<td><input type="button" name="pswdcancel" value="Cancel">

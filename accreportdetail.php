@@ -333,9 +333,7 @@
 																			$acc_no=$d['Account_no'];
 																			$acc_status=$db->select("accounts","status","Account_no=$acc_no");
 																			$acc_det=$db->select("Transaction","Transaction_date,Transaction_type,amount","Account_no=$acc_no");
-																			//$acc_date=$acc_details['transaction_date'];
-																			//$acc_transaction=$acc_details['transaction_type'];
-																			//$acc_amount=$acc_details['amount'];
+																			
 
 																			echo '
 																			<div class="panel-heading">
@@ -371,8 +369,8 @@
 																								<td>'.$count.'</td>
 																								<td>'.$transaction_date.'</td>
 																								<td>'.$amt.'</td>
-															
-																								<td>'.(($account_info_detail['Transaction_type']=='0')?"Withdraw":"Deposit").'</td>
+																								<td>'.(($account_info_detail["Transaction_type"]=='0')?"Cr : Credit":"Dr : Debit").'</td>
+																								
 																							</tr>
 																						</tbody>';
 																						$count++;
